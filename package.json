@@ -1,0 +1,29 @@
+{
+  "name": "jetaru-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio profesional de Jorge Thompson en Next.js con Clean Architecture, despliegue en GitHub Pages y conexión a servidor externo JS.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "server": "node server/server.js"
+  },
+  "dependencies": {
+    "lucide-react": "^1.57.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
