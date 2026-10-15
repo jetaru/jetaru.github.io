@@ -9,7 +9,7 @@ export const appConfig = {
     location: "Chile / Remoto",
     github: "https://github.com/jetaru",
     linkedin: "https://www.linkedin.com/in/jorge-thompson",
-    email: "contacto.jetaru@gmail.com",
+    email: "a.thompson.jorge@gmail.com",
   },
   api: {
     baseUrl: process.env.NEXT_PUBLIC_API_URL || "",
