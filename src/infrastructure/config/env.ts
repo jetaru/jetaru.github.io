@@ -8,7 +8,7 @@ export const appConfig = {
     role: "Senior Software Engineer & Systems Architect",
     location: "Chile / Remoto",
     github: "https://github.com/jetaru",
-    linkedin: "https://www.linkedin.com/in/jorge-thompson",
+    linkedin: "https://linkedin.com/in/jorge-e-thompson-alvarado",
     email: "a.thompson.jorge@gmail.com",
   },
   api: {
