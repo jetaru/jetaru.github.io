@@ -29,18 +29,16 @@ export function Hero() {
     ? profile.personalInfo.titleMobile
     : profile.personalInfo.titleBackend;
 
-  const mobilePills = [
-    "Kotlin",
-    "Jetpack Compose",
-    "React Native",
-    "Android SDK",
-    "Background Services",
-  ];
+  const mobilePills =
+    language === "es"
+      ? ["Kotlin", "Jetpack Compose", "React Native", "Android SDK", "Servicios en Segundo Plano"]
+      : ["Kotlin", "Jetpack Compose", "React Native", "Android SDK", "Background Services"];
 
   const backendPills = [
     "NestJS",
     "Node.js",
     ".NET Core",
+    "SAP BTP",
     "SAP HANA",
     "Oracle SQL",
     "Clean Architecture",
@@ -79,7 +77,7 @@ export function Hero() {
             {/* English Level */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300">
               <Globe className="w-3.5 h-3.5 text-blue-400" />
-              <span>English: {profile.personalInfo.englishLevel}</span>
+              <span>{t("hero.englishLevel")}: {profile.personalInfo.englishLevel}</span>
             </div>
           </div>
 
@@ -94,7 +92,7 @@ export function Hero() {
               }`}
             >
               <Smartphone className={`w-4 h-4 ${isMobile ? "text-slate-950" : "text-cyan-400"}`} />
-              <span>Mobile Developer</span>
+              <span>{t("role.mobile")}</span>
             </button>
 
             <button
@@ -106,7 +104,7 @@ export function Hero() {
               }`}
             >
               <Server className={`w-4 h-4 ${!isMobile ? "text-white" : "text-blue-400"}`} />
-              <span>Back-End Engineer</span>
+              <span>{t("role.backend")}</span>
             </button>
           </div>
 

@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { profileData } from "@/data/profile";
 import { profileDataEs } from "@/data/profile.es";
+import { Project } from "@/core/domain/entities/project";
 
 export type Language = "es" | "en";
 export type ProfileRole = "mobile" | "backend";
@@ -55,14 +56,15 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "nav.architecture": "Arquitectura",
     "nav.server": "Servidor JS",
     "nav.contact": "Contacto",
-    "role.mobile": "Mobile Developer",
-    "role.backend": "Back-End Engineer",
+    "role.mobile": "Desarrollador Mobile",
+    "role.backend": "Ingeniero Back-End",
     "hero.availabilityBadge": "Disponibilidad",
     "hero.viewExperience": "Ver Experiencia",
     "hero.exploreProjects": "Explorar Proyectos",
     "hero.downloadCV": "Descargar CV",
     "hero.copiedEmail": "¡Correo copiado al portapapeles!",
     "hero.contactMe": "Contactar",
+    "hero.englishLevel": "Nivel de Inglés",
     "experience.title": "Trayectoria & Experiencia Profesional",
     "experience.subtitle": "Historial de liderazgo técnico, diseño de arquitecturas y soluciones de misión crítica.",
     "experience.education": "Formación Académica",
@@ -72,6 +74,29 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "skills.filterRole": "Filtrar por Perfil",
     "skills.clickToCopy": "Haz clic en cualquier tecnología para copiarla",
     "skills.copied": "¡Copiado!",
+    "projects.sectionBadge": "Casos de Éxito & Portafolio",
+    "projects.sectionTitle": "Proyectos Principales de Alta Ingeniería",
+    "projects.sectionSubtitle": "Sistemas reales diseñados bajo principios de arquitectura limpia, resiliencia offline-first, integración transaccional con ERPs corporativos y telemetría de alta concurrencia.",
+    "projects.btnCode": "Código",
+    "projects.btnHideDetails": "Ocultar Detalles",
+    "projects.btnViewArch": "Ver Arquitectura",
+    "projects.deepDescription": "Descripción Profunda & Desafío de Ingeniería",
+    "projects.archDecisions": "Decisiones Arquitectónicas & Logros Clave",
+    "projects.detailedStack": "Stack Tecnológico Detallado",
+    "projects.stackFrontend": "Frontend & Mobile",
+    "projects.stackBackend": "Backend & APIs",
+    "projects.stackDatabase": "Persistencia & Edge",
+    "projects.stackDevops": "Cloud & DevOps",
+    "projects.evidenceTitle": "Evidencias Técnicas & Diagramas de Arquitectura",
+    "projects.evidenceSubtitle": "Diagramas de red, esquemas de bases de datos y flujos de integración en proyectos reales.",
+    "projects.ndaBadge": "Evidencia Técnica Sanitizada (NDA Compliant)",
+    "projects.exploreTechnicalDesign": "Examinar diseño técnico",
+    "projects.viewHighRes": "Ver en Alta Resolución",
+    "projects.closeView": "Cerrar Vista",
+    "evidence.type.architecture": "Arquitectura",
+    "evidence.type.schema": "Esquema BD",
+    "evidence.type.workflow": "Flujo Operacional",
+    "evidence.type.ui": "Interfaz / Pantalla",
     "lang.toggle": "Switch to English",
   },
   en: {
@@ -89,6 +114,7 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "hero.downloadCV": "Download CV",
     "hero.copiedEmail": "Email copied to clipboard!",
     "hero.contactMe": "Contact Me",
+    "hero.englishLevel": "English Level",
     "experience.title": "Career & Professional Experience",
     "experience.subtitle": "Track record of technical leadership, architectural design, and mission-critical solutions.",
     "experience.education": "Academic Education",
@@ -98,19 +124,58 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "skills.filterRole": "Filter by Role",
     "skills.clickToCopy": "Click any skill to copy",
     "skills.copied": "Copied!",
+    "projects.sectionBadge": "Case Studies & Portfolio",
+    "projects.sectionTitle": "High-Engineering Case Studies",
+    "projects.sectionSubtitle": "Production systems architected under clean architecture, offline-first resilience, ERP transactional integration, and high-concurrency telemetry.",
+    "projects.btnCode": "Code",
+    "projects.btnHideDetails": "Hide Details",
+    "projects.btnViewArch": "View Architecture",
+    "projects.deepDescription": "Deep Overview & Engineering Challenge",
+    "projects.archDecisions": "Architectural Decisions & Key Achievements",
+    "projects.detailedStack": "Detailed Tech Stack",
+    "projects.stackFrontend": "Frontend & Mobile",
+    "projects.stackBackend": "Backend & APIs",
+    "projects.stackDatabase": "Persistence & Edge",
+    "projects.stackDevops": "Cloud & DevOps",
+    "projects.evidenceTitle": "Technical Evidence & Architecture Diagrams",
+    "projects.evidenceSubtitle": "Network topologies, database schemas, and integration pipelines from production systems.",
+    "projects.ndaBadge": "Sanitized Technical Evidence (NDA Compliant)",
+    "projects.exploreTechnicalDesign": "Inspect technical design",
+    "projects.viewHighRes": "View in High Resolution",
+    "projects.closeView": "Close View",
+    "evidence.type.architecture": "Architecture",
+    "evidence.type.schema": "DB Schema",
+    "evidence.type.workflow": "Operational Workflow",
+    "evidence.type.ui": "UI Screen",
     "lang.toggle": "Cambiar a Español",
   },
 };
+
+export function getLocalizedProject(project: Project, language: Language): Project {
+  if (language === "en" && project.en) {
+    return {
+      ...project,
+      title: project.en.title || project.title,
+      subtitle: project.en.subtitle || project.subtitle,
+      summary: project.en.summary || project.summary,
+      description: project.en.description || project.description,
+      role: project.en.role || project.role,
+      architectureType: project.en.architectureType || project.architectureType,
+      tags: project.en.tags || project.tags,
+      highlights: project.en.highlights || project.highlights,
+      metrics: project.en.metrics || project.metrics,
+    };
+  }
+  return project;
+}
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>("es");
   const [activeRole, setActiveRole] = useState<ProfileRole>("mobile");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     // 1. Check saved language preference in localStorage
     const saved = localStorage.getItem("jetaru_lang") as Language | null;
     if (saved === "es" || saved === "en") {

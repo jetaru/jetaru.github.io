@@ -11,13 +11,13 @@ export const profileDataEs = {
         github: "https://github.com/jetaru",
         englishLevel: "Intermedio (B1/B2)"
     },
-    summary: "Ingeniero Civil en Informática con más de 5 años de experiencia especializándose en desarrollo Back-End de alto rendimiento, arquitectura de datos y desarrollo móvil moderno (Kotlin, Jetpack Compose, React Native). Experto en NestJS, .NET Core, Oracle SQL, SAP HANA y ciberseguridad OWASP, utilizando asistentes de inteligencia artificial para acelerar los ciclos de entrega.",
+    summary: "Ingeniero Civil en Informática con más de 5 años de experiencia especializándose en desarrollo Back-End de alto rendimiento, arquitectura de datos y desarrollo móvil moderno (Kotlin, Jetpack Compose, React Native). Experto en NestJS, .NET Core, Oracle SQL, SAP BTP / SAP PO / SAP HANA, Azure y arquitecturas Offline-First con ciberseguridad OWASP, utilizando asistentes de inteligencia artificial para acelerar los ciclos de entrega.",
     skills: [
-        { category: "Desarrollo Móvil", items: ["Kotlin", "Java", "Jetpack Compose", "Android SDK", "React Native", "Servicios en Segundo Plano"] },
-        { category: "Back-End y Cloud", items: ["NestJS", "Node.js", ".NET Core", "PHP (Laravel)", "Java (SpringBoot)", "APIs REST", "Microservicios", "SAP BTP", "GCP (Firebase)"] },
-        { category: "Bases de Datos y Arquitectura", items: ["SAP HANA", "Oracle SQL (10g/12c/19c)", "PostgreSQL", "Modelado de Datos", "Procedimientos Almacenados", "Arquitectura Limpia", "MVVM/MVI", "SOLID"] },
-        { category: "Seguridad y Calidad", items: ["OWASP Top 10", "Encriptación y Hashing", "SonarQube", "KIUWAN", "Clean Code"] },
-        { category: "DevOps e Inteligencia Artificial", items: ["Git", "Gradle", "CI/CD", "Scrum/XP", "GitHub Copilot", "ChatGPT"] }
+        { category: "Desarrollo Móvil", items: ["Kotlin", "Java", "Jetpack Compose", "Android SDK", "React Native", "Arquitectura Offline-First", "Servicios en Segundo Plano"] },
+        { category: "Back-End y Cloud", items: ["NestJS", "Node.js", ".NET Core", "SAP BTP", "SAP PO (Process Orchestration)", "Azure (Entra ID, App Services)", "Microservicios", "APIs REST", "GCP (Firebase)"] },
+        { category: "Bases de Datos y Arquitectura", items: ["SAP HANA", "Oracle SQL (10g/12c/19c)", "PostgreSQL", "Clean Architecture", "Transactional Outbox", "Modelado de Datos", "Procedimientos Almacenados (PL/SQL)", "MVVM/MVI", "SOLID"] },
+        { category: "Seguridad y Calidad", items: ["Ciberseguridad OWASP", "SSL Pinning", "Encriptación y Hashing", "SonarQube", "KIUWAN", "Clean Code"] },
+        { category: "DevOps e Inteligencia Artificial", items: ["Git", "Docker", "CI/CD", "Scrum/XP", "GitHub Copilot", "ChatGPT"] }
     ],
     experience: [
         {
@@ -26,12 +26,12 @@ export const profileDataEs = {
             period: "Nov 2021 – Jun 2026",
             location: "Concepción, Chile",
             highlights: [
-                "Lideré la migración y modernización desde sistemas heredados (ASP.NET / Java) hacia NestJS, Next.js, Kotlin y Jetpack Compose.",
-                "Diseñé capas de transformación de datos en NestJS unificando payloads complejos provenientes de APIs externas y SAP HANA.",
-                "Optimicé el rendimiento transaccional mediante procedimientos almacenados avanzados y procesamiento JSON en Oracle SQL y SAP HANA.",
-                "Implementé estándares de seguridad OWASP, mitigando vulnerabilidades de CSRF e inyecciones verificadas por SonarQube y KIUWAN.",
-                "Desarrollé servicios robustos de rastreo GPS en segundo plano para camiones forestales integrados con SAP BTP / HANA.",
-                "Aceleré el desarrollo y la cobertura de pruebas unitarias integrando asistentes de IA (Copilot, ChatGPT)."
+                "Arquitecté e implementé el backend del Portal de Proveedores (BFF en NestJS / Node.js y procedimientos en Oracle SQL) para homologación y validación masiva en línea de flotas de transporte, choferes y documentación técnica con alta concurrencia.",
+                "Diseñé el backend transaccional de Convector BTP para orquestación logística ferroviaria y despacho de convoyes industriales, desarrollando paquetes PL/SQL de alto rendimiento en Oracle SQL y endpoints de integración con SAP BTP para eventos de despacho (SIM-F9902) y cubicación.",
+                "Desarrollé la aplicación móvil VALDOR y sus servicios en segundo plano para seguimiento telemático GPS continuo, gestión de misiones de transporte, control de traspasos por panne y seguridad móvil reforzada con SSL Pinning (OWASP MASVS).",
+                "Lideré la modernización del sistema de Inspección Industrial Química bajo Clean Architecture y Offline-First, orquestando la ingesta asíncrona hacia SAP PO (Process Orchestration) y autenticación federada Zero Trust con Microsoft Entra ID.",
+                "Evolucioné el sistema SISPAT para inspecciones patrimoniales y checklists de faenas, implementando lógica condicional de eventos múltiples ante no-cumplimientos y sincronización de datos con Oracle SQL.",
+                "Optimicé el rendimiento transaccional mediante procedimientos almacenados avanzados y procesamiento JSON en Oracle SQL y SAP HANA, mitigando cuellos de botella en operaciones de alta demanda."
             ]
         },
         {
