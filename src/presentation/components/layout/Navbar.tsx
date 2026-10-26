@@ -9,7 +9,7 @@ import {
   Menu,
   X,
   Briefcase,
-  Languages,
+  Sparkles,
 } from "lucide-react";
 import { GithubIcon } from "@/presentation/components/ui/Icons";
 import { useServerStatus } from "@/presentation/hooks/useServerStatus";
@@ -28,6 +28,7 @@ export function Navbar() {
     { label: t("nav.skills"), href: "#habilidades", icon: Cpu },
     { label: t("nav.projects"), href: "#proyectos", icon: Layers },
     { label: t("nav.architecture"), href: "#arquitectura", icon: Terminal },
+    { label: t("nav.universal"), href: "#universal-system", icon: Sparkles },
     { label: t("nav.contact"), href: "#contacto", icon: Mail },
   ];
 
@@ -73,20 +74,22 @@ export function Navbar() {
           <div className="flex items-center rounded-xl bg-slate-900 border border-slate-800 p-0.5 font-mono text-xs">
             <button
               onClick={() => setLanguage("es")}
-              className={`px-2 py-1 rounded-lg transition-all ${language === "es"
+              className={`px-2 py-1 rounded-lg transition-all ${
+                language === "es"
                   ? "bg-cyan-500 text-slate-950 font-bold shadow-sm"
                   : "text-slate-400 hover:text-white"
-                }`}
+              }`}
               title="Español"
             >
               ES
             </button>
             <button
               onClick={() => setLanguage("en")}
-              className={`px-2 py-1 rounded-lg transition-all ${language === "en"
+              className={`px-2 py-1 rounded-lg transition-all ${
+                language === "en"
                   ? "bg-cyan-500 text-slate-950 font-bold shadow-sm"
                   : "text-slate-400 hover:text-white"
-                }`}
+              }`}
               title="English"
             >
               EN
@@ -100,12 +103,13 @@ export function Navbar() {
             title={health.message || "Estado del Servidor JS"}
           >
             <span
-              className={`w-2 h-2 rounded-full ${isServerOnline
+              className={`w-2 h-2 rounded-full ${
+                isServerOnline
                   ? "bg-emerald-400 animate-pulse"
                   : health.status === "connecting"
-                    ? "bg-amber-400 animate-pulse"
-                    : "bg-slate-500"
-                }`}
+                  ? "bg-amber-400 animate-pulse"
+                  : "bg-slate-500"
+              }`}
             />
             <span className="text-slate-300">
               API JS:{" "}
@@ -114,15 +118,15 @@ export function Navbar() {
                   isServerOnline
                     ? "text-emerald-400"
                     : health.status === "connecting"
-                      ? "text-amber-400"
-                      : "text-slate-400"
+                    ? "text-amber-400"
+                    : "text-slate-400"
                 }
               >
                 {isServerOnline
                   ? "Online"
                   : health.status === "connecting"
-                    ? "..."
-                    : "Local"}
+                  ? "..."
+                  : "Local"}
               </strong>
             </span>
           </a>

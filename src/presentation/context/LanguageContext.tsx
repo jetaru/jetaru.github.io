@@ -22,6 +22,8 @@ export interface NormalizedProfile {
     englishLevel: string;
   };
   summary: string;
+  summaryMobile?: string;
+  summaryBackend?: string;
   skills: Array<{ category: string; items: string[] }>;
   experience: Array<{
     company: string;
@@ -54,6 +56,7 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "nav.experience": "Experiencia",
     "nav.skills": "Habilidades",
     "nav.architecture": "Arquitectura",
+    "nav.universal": "Universal System",
     "nav.server": "Servidor JS",
     "nav.contact": "Contacto",
     "role.mobile": "Desarrollador Mobile",
@@ -97,6 +100,18 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "evidence.type.schema": "Esquema BD",
     "evidence.type.workflow": "Flujo Operacional",
     "evidence.type.ui": "Interfaz / Pantalla",
+    "universal.sectionBadge": "Emprendimiento Tecnológico & Servicios",
+    "universal.title": "Conoce mi PYME: Universal System",
+    "universal.subtitle": "A través de Universal System brindo acompañamiento tecnológico humano con absoluta empatía y paciencia para adultos y familias, mentorías personalizadas de productividad digital y un laboratorio de soporte informático de alta precisión, bajo el lema «Porque aprender nunca fue tan fácil».",
+    "universal.brandTagline": "Porque aprender nunca fue tan fácil",
+    "universal.brandSub": "Asesoría Humana • Nivelación • Soporte de Precisión",
+    "universal.pillar1Title": "Asesoría Tecnológica Humana",
+    "universal.pillar1Desc": "Especialmente creada para adultos mayores, familias y profesionales: home banking seguro, trámites digitales oficiales y configuración de smartphones (Android & iOS) sin tecnicismos complejos.",
+    "universal.pillar2Title": "Clases de Nivelación & Productividad",
+    "universal.pillar2Desc": "Mentorías 1 a 1 adaptadas a tu propio ritmo: ofimática moderna (Excel, Google Sheets), herramientas de Inteligencia Artificial aplicadas al día a día y organización de archivos en la nube.",
+    "universal.pillar3Title": "Soporte & Laboratorio de Precisión",
+    "universal.pillar3Desc": "Diagnóstico riguroso y reparación de computadoras portátiles y de escritorio: aceleración extrema con discos SSD, mantenimiento térmico profundo y recuperación de datos confidenciales.",
+    "universal.ctaExplore": "Conocer Servicios en Universal System",
     "lang.toggle": "Switch to English",
   },
   en: {
@@ -104,6 +119,7 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "nav.experience": "Experience",
     "nav.skills": "Skills",
     "nav.architecture": "Architecture",
+    "nav.universal": "Universal System",
     "nav.server": "JS Server",
     "nav.contact": "Contact",
     "role.mobile": "Mobile Developer",
@@ -147,6 +163,18 @@ const UI_STRINGS: Record<Language, Record<string, string>> = {
     "evidence.type.schema": "DB Schema",
     "evidence.type.workflow": "Operational Workflow",
     "evidence.type.ui": "UI Screen",
+    "universal.sectionBadge": "Tech Venture & Digital Services",
+    "universal.title": "Discover My Venture: Universal System",
+    "universal.subtitle": "Through Universal System, I provide empathetic tech guidance for families and seniors, 1-on-1 digital productivity mentorships, and a precision hardware diagnostic & repair lab under the motto 'Because learning was never so easy'.",
+    "universal.brandTagline": "Because learning was never so easy",
+    "universal.brandSub": "Human Advisory • Productivity • Precision Support",
+    "universal.pillar1Title": "Human Technology Advisory",
+    "universal.pillar1Desc": "Specially designed for seniors, families, and busy professionals: secure online banking, official digital procedures, and comprehensive smartphone setup with empathy and zero jargon.",
+    "universal.pillar2Title": "Skill Leveling & Productivity Classes",
+    "universal.pillar2Desc": "1-on-1 personalized mentorships adapted to your pace: modern office tools (Excel, Google Sheets), applied Artificial Intelligence, and cloud storage organization.",
+    "universal.pillar3Title": "Precision Lab & Hardware Support",
+    "universal.pillar3Desc": "Exhaustive diagnostics and repair for laptops and desktop workstations: high-speed SSD upgrades, deep thermal overhaul with premium thermal paste, and secure data recovery.",
+    "universal.ctaExplore": "Explore Universal System Services",
     "lang.toggle": "Cambiar a Español",
   },
 };
@@ -204,14 +232,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const rawSource = language === "es" ? profileDataEs : profileData;
 
+  const currentSummary =
+    activeRole === "mobile"
+      ? (language === "es"
+          ? (profileDataEs as any).summaryMobile || (profileDataEs as any).summary
+          : (profileData as any).summaryMobile?.en || (profileData as any).summary?.en)
+      : (language === "es"
+          ? (profileDataEs as any).summaryBackend || (profileDataEs as any).summary
+          : (profileData as any).summaryBackend?.en || (profileData as any).summary?.en);
+
   const normalizedProfile: NormalizedProfile = {
     personalInfo: rawSource.personalInfo,
-    summary:
-      typeof rawSource.summary === "string"
-        ? rawSource.summary
-        : language === "es"
-        ? rawSource.summary.es
-        : rawSource.summary.en,
+    summary: currentSummary,
+    summaryMobile:
+      language === "es" ? (profileDataEs as any).summaryMobile : (profileData as any).summaryMobile?.en,
+    summaryBackend:
+      language === "es" ? (profileDataEs as any).summaryBackend : (profileData as any).summaryBackend?.en,
     skills: rawSource.skills,
     experience: rawSource.experience,
     education: rawSource.education,

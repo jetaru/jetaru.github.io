@@ -228,6 +228,130 @@ export const MOCK_PROJECTS: Project[] = [
     },
   },
 
+    // =========================================================================
+  // CASO 3: Canal Moderno - Suite Móvil B2B Retail (React Native)
+  // =========================================================================
+  {
+    id: "pf-canal-moderno",
+    slug: "pf-canal-moderno",
+    title: "Canal Moderno: Suite Móvil B2B para Gestión Comercial y Supervisión Retail",
+    subtitle: "Aplicación Móvil Cross-Platform en React Native con Check-in Georreferenciado y Catálogo Offline",
+    summary:
+      "Plataforma móvil corporativa en React Native para equipos de ventas y supervisión en grandes cadenas de retail y supermercados, integrando toma de pedidos en sala, escaneo de códigos de barra, check-in geolocalizado y sincronización transaccional con Oracle 19c.",
+    description:
+      "[SITUACIÓN] Una de las principales corporaciones de alimentos y distribución minorista requería digitalizar y estandarizar la operación en sala de su fuerza de venta y supervisión en supermercados de todo el país, eliminando órdenes en papel, quiebres de stock no alertados y desfasajes en las rutas de visita.\n\n[TAREA] Construir una aplicación móvil moderna, multiplataforma (iOS y Android en React Native) y altamente intuitiva para un perfil etario heterogéneo, con capacidades de check-in georreferenciado en punto de venta, toma de pedidos en sala con catálogo offline y validación de reglas de negocio contra un backend empresarial en Oracle 19c.\n\n[ACCIÓN] Se diseñó la arquitectura en React Native con TypeScript y gestión de estado predecible; se implementaron módulos de lectura rápida de códigos de barra (EAN/UPC); se configuró la validación espacial de check-in/check-out por coordenadas GPS en tiendas; se diseñó un motor de catálogo local para navegación y pedidos sin dependencia de red; y se integró un pipeline de despliegue corporativo MDM (Mobile Device Management).\n\n[RESULTADO] Disminución del 40% en el tiempo de captura y procesamiento de órdenes de compra, 100% de cumplimiento en rutas de supervisión auditadas por geolocalización, reducción del 60% en errores de digitación de pedidos y despliegue exitoso en cientos de terminales comerciales.",
+    role: "Senior Mobile Engineer & React Native Specialist",
+    architectureType: "React Native Cross-Platform / State Management / Offline POS",
+    tags: [
+      "React Native",
+      "TypeScript",
+      "B2B Retail",
+      "Geolocalización",
+      "Catálogo Offline",
+      "Oracle 19c",
+    ],
+    metrics: [
+      { label: "Tiempo de Captura de Pedidos", value: "-40%" },
+      { label: "Cumplimiento de Rutas de Visita", value: "100%" },
+      { label: "Errores en Órdenes de Compra", value: "-60%" },
+      { label: "Disponibilidad en Sala", value: "99.9%" },
+    ],
+    highlights: [
+      "Arquitectura modular en React Native con TypeScript orientada a escalabilidad y alto rendimiento.",
+      "Módulo de pedidos en punto de venta con catálogo local, cálculo de descuentos y validación de stock.",
+      "Sistema de Check-in y Check-out georreferenciado con geocerca para validación presencial en supermercados.",
+      "Despliegue empresarial seguro mediante Mobile Device Management (MDM) e integración con Oracle 19c.",
+    ],
+    techStack: {
+      frontend: [
+        "React Native",
+        "TypeScript",
+        "Redux Toolkit / Context",
+        "React Navigation",
+        "Vector Icons / Barcode Camera",
+      ],
+      backend: [
+        "Node.js / Express REST API",
+        "Oracle 19c PL/SQL Procedures",
+        "Data Transformation Middleware",
+        "JSON Processing Services",
+      ],
+      database: [
+        "Oracle 19c Enterprise DB",
+        "AsyncStorage / SQLite Local Cache",
+        "Transactional Relational Store",
+      ],
+      devops: [
+        "Mobile Device Management (MDM)",
+        "GitLab CI/CD",
+        "Docker",
+        "Internal App Distribution",
+      ],
+    },
+    featured: true,
+    status: "Producción",
+    evidences: [
+      {
+        url: "/assets/projects/pf-canal-moderno/evidence-1.png",
+        title: "Mapa de Arquitectura de Navegación y Flujo de Pantallas de la App",
+        description:
+          "Topología integral de navegación, estados de autenticación y jerarquía de módulos operativos.",
+        type: "architecture",
+      },
+      {
+        url: "/assets/projects/pf-canal-moderno/evidence-2.png",
+        title: "Dashboard Comercial de KPIs, Ventas Acumuladas y Metas",
+        description:
+          "Consola móvil reactiva para seguimiento diario de cuotas, visitas efectivas y cobertura de cartera.",
+        type: "ui",
+      },
+      {
+        url: "/assets/projects/pf-canal-moderno/evidence-3.png",
+        title: "Módulo de Toma de Pedidos, Catálogo y Códigos EAN en Sala",
+        description:
+          "Flujo de digitación de órdenes de compra con lectura de código de barras y validación de precios.",
+        type: "workflow",
+      },
+      {
+        url: "/assets/projects/pf-canal-moderno/evidence-4.png",
+        title: "Módulo de Tiendas, Registro de Visitas y Check-in Georreferenciado",
+        description:
+          "Validación espacial de presencia física del supervisor mediante geocercas en supermercados.",
+        type: "ui",
+      },
+    ],
+    architectureDiagramCode: `flowchart TD
+  SalesAgent["Fuerza de Ventas (Retail Rep)"] --> RNApp["React Native Mobile App (iOS / Android)"]
+  RNApp --> LocalCatalog["AsyncStorage / Local SQLite (Catálogo Offline)"]
+  RNApp --> GeofenceEngine["Motor de Check-In GPS en Supermercado"]
+  RNApp -- "HTTPS REST API" --> MobileGateway["Mobile API Gateway / BFF"]
+  MobileGateway --> DataPipe["Data Transformation & Validation Pipeline"]
+  DataPipe --> Oracle19c[("Oracle 19c Enterprise Core")]`,
+    en: {
+      title: "Modern Channel: B2B Mobile Suite for Commercial Dispatch & Retail POS Orders",
+      subtitle: "Cross-Platform React Native App with Georeferenced Check-In & Offline Product Catalog",
+      summary:
+        "Enterprise React Native mobile application for commercial sales forces and retail supervisors across major supermarket chains, featuring in-store POS order intake, barcode scanning, geofenced visits, and Oracle 19c transactional synchronization.",
+      description:
+        "[SITUATION] A leading food manufacturing and distribution corporation required digital transformation for in-store field sales forces and supermarket supervisors, replacing paper orders and unmonitored route visits.\n\n[TASK] Build an intuitive, high-performance cross-platform mobile app (React Native for iOS and Android) with geofenced store check-in, offline product catalog, fast barcode lookup, and integration with an Oracle 19c backend.\n\n[ACTION] Architected React Native with TypeScript and modular state management; built barcode scanning (EAN/UPC); implemented store check-in GPS validation; optimized offline local storage for catalog browsing; and configured enterprise deployment via Mobile Device Management (MDM).\n\n[RESULT] 40% reduction in order processing time, 100% route compliance verified by GPS geofencing, 60% drop in order entry errors, and successful deployment across hundreds of commercial field reps.",
+      role: "Senior Mobile Engineer & React Native Specialist",
+      architectureType: "React Native Cross-Platform / State Management / Offline POS",
+      tags: ["React Native", "TypeScript", "B2B Retail", "Geolocation", "Offline Catalog", "Oracle 19c"],
+      highlights: [
+        "Modular React Native architecture with TypeScript designed for scalability and high rendering performance.",
+        "In-store order module with offline product catalog, discount tiers, and real-time validation.",
+        "Geofenced Check-in and Check-out engine enforcing physical presence verification at supermarkets.",
+        "Secure enterprise deployment through Mobile Device Management (MDM) connected to Oracle 19c.",
+      ],
+      metrics: [
+        { label: "Order Capture Speedup", value: "-40%" },
+        { label: "Route Compliance", value: "100%" },
+        { label: "Order Entry Error Drop", value: "-60%" },
+        { label: "In-Store Availability", value: "99.9%" },
+      ],
+    },
+  },
+
   // =========================================================================
   // CASO 3: SISPAT - Inspección Patrimonial, Checklist y Eventos
   // =========================================================================
