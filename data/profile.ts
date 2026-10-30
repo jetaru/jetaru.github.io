@@ -38,7 +38,7 @@ export const profileData = {
             location: "Concepción, Chile",
             highlights: [
                 "Architected and implemented the backend for Supplier Logistics Hub (BFF in NestJS / Node.js and Oracle SQL) for high-concurrency online onboarding and validation of transport fleets, drivers, and technical licenses.",
-                "Engineered the Convector BTP transactional backend for railway logistics and industrial train convoy dispatching, developing high-performance PL/SQL packages in Oracle SQL and integration endpoints with SAP BTP for dispatch events (SIM-F9902) and volumetric measurement.",
+                "Engineered the Convector BTP transactional backend for railway logistics and industrial train convoy dispatching, developing high-performance PL/SQL packages in Oracle SQL and integration endpoints with SAP BTP for dispatch events and volumetric measurement.",
                 "Developed the VALDOR mobile application and background tracking services for continuous GPS telematics, transport mission orchestration, breakdown (panne) transfer control, and mobile security enforced with SSL Pinning (OWASP MASVS).",
                 "Led React Native development for the Retail Modern Channel suite, implementing in-store POS ordering, barcode scanning (EAN), supermarket geofenced visits, and Oracle 19c synchronization.",
                 "Led the modernization of the Chemical Industrial Inspection system under Clean Architecture and Offline-First, orchestrating asynchronous ingestion with SAP PO (Process Orchestration) and Zero Trust federated authentication with Microsoft Entra ID.",

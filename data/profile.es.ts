@@ -29,7 +29,7 @@ export const profileDataEs = {
             location: "Concepción, Chile",
             highlights: [
                 "Arquitecté e implementé el backend del Portal de Proveedores (BFF en NestJS / Node.js y procedimientos en Oracle SQL) para homologación y validación masiva en línea de flotas de transporte, choferes y documentación técnica con alta concurrencia.",
-                "Diseñé el backend transaccional de Convector BTP para orquestación logística ferroviaria y despacho de convoyes industriales, desarrollando paquetes PL/SQL de alto rendimiento en Oracle SQL y endpoints de integración con SAP BTP para eventos de despacho (SIM-F9902) y cubicación.",
+                "Diseñé el backend transaccional de Convector BTP para orquestación logística ferroviaria y despacho de convoyes industriales, desarrollando paquetes PL/SQL de alto rendimiento en Oracle SQL y endpoints de integración con SAP BTP para eventos de despacho y cubicación.",
                 "Desarrollé la aplicación móvil VALDOR y sus servicios en segundo plano para seguimiento telemático GPS continuo, gestión de misiones de transporte, control de traspasos por panne y seguridad móvil reforzada con SSL Pinning (OWASP MASVS).",
                 "Lideré el desarrollo en React Native para la suite Canal Moderno, implementando toma de pedidos en sala, escaneo de códigos de barra (EAN), check-in geolocalizado en supermercados y sincronización con Oracle 19c.",
                 "Lideré la modernización del sistema de Inspección Industrial Química bajo Clean Architecture y Offline-First, orquestando la ingesta asíncrona hacia SAP PO (Process Orchestration) y autenticación federada Zero Trust con Microsoft Entra ID.",

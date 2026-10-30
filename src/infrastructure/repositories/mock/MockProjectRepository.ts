@@ -72,14 +72,7 @@ export const MOCK_PROJECTS: Project[] = [
           "Esquema de integración segura entre clientes móviles en terreno, gateway reverso y middleware corporativo.",
         type: "architecture",
       },
-      {
-        url: "/assets/projects/inspeccion-industrial-sap/evidence-2.png",
-        title: "Modelo Entidad-Relación de Auditoría Técnica",
-        description:
-          "Diseño del esquema de base de datos relacional para control de parámetros normativos y evaluaciones.",
-        type: "schema",
-      },
-    ],
+      ],
     architectureDiagramCode: `flowchart TD
   MobileClient["Mobile Client (Clean Arch)"] --> LocalCache["Local Outbox (SQLite)"]
   LocalCache --> SyncWorker["Sync Worker & Retry Policy"]
@@ -584,11 +577,11 @@ export const MOCK_PROJECTS: Project[] = [
     id: "convector-btp-ferroviario",
     slug: "convector-btp-ferroviario",
     title: "Convector BTP: Orquestación Logística Ferroviaria y Despacho Industrial",
-    subtitle: "Backend de Alto Rendimiento para Eventos de Despacho (SIM-F9902) y Cubicación en SAP BTP",
+    subtitle: "Backend de Alto Rendimiento para Eventos de Despacho y Cubicación en SAP BTP",
     summary:
       "Plataforma backend y middleware transaccional de alta concurrencia para la gestión y despacho de convoyes ferroviarios y transporte pesado, con cálculo volumétrico y conciliación de eventos en SAP BTP.",
     description:
-      "[SITUACIÓN] El transporte ferroviario de productos terminados, subproductos y madera industrial requería coordinar despachos masivos con múltiples carros y trenes diarios, donde cualquier error de pesaje o retraso en la emisión de guías paralizaba patios industriales.\n\n[TAREA] Diseñar e implementar un motor transaccional de backend que centralizara los eventos de despacho (SIM-F9902), ejecutara cálculos volumétricos de cubicación en milisegundos y se sincronizara de forma atómica con SAP BTP y bases de datos relacionales.\n\n[ACCIÓN] Se desarrollaron procedimientos almacenados de alto rendimiento en Oracle SQL con paquetes transaccionales específicos (`gde2.pkg_ngde`); se modelaron APIs RESTful desacopladas para la orquestación de eventos de despacho, grillas operativas y modales de conciliación; se integraron colas de procesamiento asíncrono para absorber picos de tráfico de convoyes; y se enlazaron servicios de integración en SAP BTP.\n\n[RESULTADO] Disminución del 55% en los tiempos de despacho ferroviario en patios de carga, procesamiento de más de 20,000 toneladas diarias sin descalces de inventario, 99.95% de disponibilidad transaccional y total trazabilidad de eventos logísticos.",
+      "[SITUACIÓN] El transporte ferroviario de productos terminados, subproductos y madera industrial requería coordinar despachos masivos con múltiples carros y trenes diarios, donde cualquier error de pesaje o retraso en la emisión de guías paralizaba patios industriales.\n\n[TAREA] Diseñar e implementar un motor transaccional de backend que centralizara los eventos de despacho, ejecutara cálculos volumétricos de cubicación en milisegundos y se sincronizara de forma atómica con SAP BTP y bases de datos relacionales.\n\n[ACCIÓN] Se desarrollaron procedimientos almacenados de alto rendimiento en Oracle SQL con paquetes transaccionales específicos; se modelaron APIs RESTful desacopladas para la orquestación de eventos de despacho, grillas operativas y modales de conciliación; se integraron colas de procesamiento asíncrono para absorber picos de tráfico de convoyes; y se enlazaron servicios de integración en SAP BTP.\n\n[RESULTADO] Disminución del 55% en los tiempos de despacho ferroviario en patios de carga, procesamiento de más de 20,000 toneladas diarias sin descalces de inventario, 99.95% de disponibilidad transaccional y total trazabilidad de eventos logísticos.",
     role: "Senior Backend & Data Architect",
     architectureType: "High-Throughput Transact Core / SAP BTP Middleware / Oracle PL-SQL",
     tags: [
@@ -607,7 +600,7 @@ export const MOCK_PROJECTS: Project[] = [
     ],
     highlights: [
       "Diseño de paquetes y procedimientos almacenados PL/SQL optimizados para procesamiento por lotes de convoyes.",
-      "Integración de la interfaz de despacho SIM-F9902 con grilla reactiva y modal de conciliación de carga.",
+      "Integración de la interfaz de despacho con grilla reactiva y modal de conciliación de carga.",
       "Conectividad asíncrona con servicios de logística nacional y pesaje en SAP Business Technology Platform (BTP).",
       "Algoritmos de cubicación y asignación de espacio en carros de tren para máxima eficiencia volumétrica.",
     ],
@@ -641,7 +634,7 @@ export const MOCK_PROJECTS: Project[] = [
     evidences: [
       {
         url: "/assets/projects/convector-btp-ferroviario/evidence-1.png",
-        title: "Módulo de Despacho de Eventos y Grilla Transaccional (SIM-F9902)",
+        title: "Módulo de Despacho de Eventos y Grilla Transaccional",
         description:
           "Panel operativo en tiempo real para registro y control de eventos de despacho de trenes y camiones.",
         type: "ui",
@@ -655,25 +648,25 @@ export const MOCK_PROJECTS: Project[] = [
       },
     ],
     architectureDiagramCode: `flowchart TD
-  DispatchOperator["Operador de Despacho Ferroviario"] --> WebConsole["Consola Web de Despacho (SIM-F9902)"]
+  DispatchOperator["Operador de Despacho Ferroviario"] --> WebConsole["Consola Web de Despacho"]
   WebConsole --> BTPGateway["API Gateway / Integration Services"]
   BTPGateway --> ConvectorCore["Convector Backend Engine"]
-  ConvectorCore --> PLSQLPkg["Oracle PL/SQL Packages (gde2.pkg_ngde)"]
+  ConvectorCore --> PLSQLPkg["Oracle PL/SQL Packages (Dispatch Domain)"]
   PLSQLPkg --> OracleDB[("Oracle Enterprise Relational Core")]
   ConvectorCore -- "RFC / REST" --> SAPBTP["SAP BTP / SAP S4 Logistics Core"]`,
     en: {
       title: "Convector BTP: Rail Logistics Orchestration & Industrial Dispatching",
-      subtitle: "High-Performance Backend for Dispatch Events (SIM-F9902) & Rail Cargo on SAP BTP",
+      subtitle: "High-Performance Backend for Dispatch Events & Rail Cargo on SAP BTP",
       summary:
         "High-concurrency transactional backend and middleware platform for managing railway convoy dispatches and heavy industrial transport, with volumetric calculation and atomic event reconciliation on SAP BTP.",
       description:
-        "[SITUATION] Rail transport of industrial timber and manufactured products required dispatching multiple heavy freight trains daily, where any weighing glitch or documentation delay paralyzed cargo yards.\n\n[TASK] Design and implement a high-throughput transactional backend engine to centralize dispatch events (SIM-F9902), execute cubic volume calculations in milliseconds, and atomically sync with SAP BTP.\n\n[ACTION] Developed high-performance PL/SQL packages in Oracle SQL (`gde2.pkg_ngde`); modeled decoupled RESTful APIs for dispatch event grids and modal reconciliation; and integrated asynchronous queues to absorb train convoy traffic spikes.\n\n[RESULT] 55% reduction in rail yard dispatch cycle time, over 20,000 metric tons processed daily with zero inventory mismatch, 99.95% transactional availability, and full end-to-end auditability.",
+        "[SITUATION] Rail transport of industrial timber and manufactured products required dispatching multiple heavy freight trains daily, where any weighing glitch or documentation delay paralyzed cargo yards.\n\n[TASK] Design and implement a high-throughput transactional backend engine to centralize dispatch events, execute cubic volume calculations in milliseconds, and atomically sync with SAP BTP.\n\n[ACTION] Developed high-performance PL/SQL packages in Oracle SQL; modeled decoupled RESTful APIs for dispatch event grids and modal reconciliation; and integrated asynchronous queues to absorb train convoy traffic spikes.\n\n[RESULT] 55% reduction in rail yard dispatch cycle time, over 20,000 metric tons processed daily with zero inventory mismatch, 99.95% transactional availability, and full end-to-end auditability.",
       role: "Senior Backend & Data Architect",
       architectureType: "High-Throughput Transact Core / SAP BTP Middleware / Oracle PL-SQL",
       tags: ["SAP BTP", "Rail Logistics", "Oracle SQL", "Stored Procedures", "High Concurrency", "Microservices"],
       highlights: [
         "Optimized PL/SQL packages and stored procedures for high-volume train convoy batch processing.",
-        "Integration of SIM-F9902 dispatch interface with reactive data grid and cargo reconciliation modal.",
+        "Integration of the dispatch interface with reactive data grid and cargo reconciliation modal.",
         "Asynchronous connectivity with national logistics services and weighbridges on SAP BTP.",
         "Volumetric cargo measurement and train wagon allocation algorithms for optimal space utilization.",
       ],
